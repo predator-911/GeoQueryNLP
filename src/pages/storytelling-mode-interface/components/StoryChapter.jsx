@@ -104,7 +104,7 @@ const StoryChapter = ({
               </motion.p>
 
               {/* Key Features */}
-              {features && features?.length > 0 && (
+              {features && features.length > 0 && (
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: isActive ? 1 : 0, y: isActive ? 0 : 20 }}
@@ -115,7 +115,7 @@ const StoryChapter = ({
                     Key Features
                   </h4>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                    {features?.map((feature, index) => (
+                    {features.map((feature, index) => (
                       <motion.div
                         key={index}
                         initial={{ opacity: 0, x: -20 }}
@@ -132,14 +132,14 @@ const StoryChapter = ({
               )}
 
               {/* Statistics */}
-              {stats && stats?.length > 0 && (
+              {stats && stats.length > 0 && (
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: isActive ? 1 : 0, y: isActive ? 0 : 20 }}
                   transition={{ duration: 0.6, delay: 0.8 }}
                   className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6"
                 >
-                  {stats?.map((stat, index) => (
+                  {stats.map((stat, index) => (
                     <motion.div
                       key={index}
                       initial={{ opacity: 0, scale: 0.8 }}
@@ -151,19 +151,19 @@ const StoryChapter = ({
                       className="bg-muted/30 backdrop-blur-sm rounded-xl p-4 text-center border border-border/30 hover:border-primary/30 smooth-transition group cursor-pointer"
                     >
                       <div className="flex items-center justify-center mb-2">
-                        {stat?.icon && (
+                        {stat.icon && (
                           <Icon 
-                            name={stat?.icon} 
+                            name={stat.icon} 
                             size={20} 
                             className={`text-gradient bg-gradient-to-r ${color} mr-2`}
                           />
                         )}
                         <div className={`text-2xl font-bold bg-gradient-to-r ${color} bg-clip-text text-transparent group-hover:scale-110 smooth-transition`}>
-                          {stat?.value}
+                          {stat.value}
                         </div>
                       </div>
                       <div className="text-xs text-muted-foreground uppercase tracking-wider">
-                        {stat?.label}
+                        {stat.label}
                       </div>
                     </motion.div>
                   ))}
@@ -171,7 +171,7 @@ const StoryChapter = ({
               )}
 
               {/* Interactive Elements */}
-              {interactiveElements && interactiveElements?.length > 0 && (
+              {interactiveElements && interactiveElements.length > 0 && (
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: isActive ? 1 : 0, y: isActive ? 0 : 20 }}
@@ -182,10 +182,10 @@ const StoryChapter = ({
                     Interactive Elements
                   </h4>
                   <div className="flex flex-wrap gap-3">
-                    {interactiveElements?.map((element, index) => (
+                    {interactiveElements.map((element, index) => (
                       <motion.button
                         key={index}
-                        onClick={() => handleInteractiveClick(element?.action)}
+                        onClick={() => handleInteractiveClick(element.action)}
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ 
                           opacity: isActive ? 1 : 0, 
@@ -197,11 +197,11 @@ const StoryChapter = ({
                         className={`flex items-center space-x-2 px-4 py-2 rounded-lg border border-border bg-gradient-to-r ${color} text-white hover:shadow-lg hover:shadow-primary/20 smooth-transition group`}
                       >
                         <Icon 
-                          name={element?.type === 'demo' ? 'Play' : element?.type === 'learn' ? 'BookOpen' : 'Search'} 
+                          name={element.type === 'demo' ? 'Play' : element.type === 'learn' ? 'BookOpen' : 'Search'} 
                           size={16} 
                           className="group-hover:animate-pulse"
                         />
-                        <span className="text-sm font-medium">{element?.label}</span>
+                        <span className="text-sm font-medium">{element.label}</span>
                         <Icon name="ArrowRight" size={12} className="group-hover:translate-x-1 smooth-transition" />
                       </motion.button>
                     ))}
@@ -230,7 +230,7 @@ const StoryChapter = ({
                     <div className="absolute inset-0 bg-white/20 animate-pulse" />
                   </motion.div>
                 </div>
-              </div>
+              </motion.div>
 
               {/* Navigation Hint */}
               <motion.div
